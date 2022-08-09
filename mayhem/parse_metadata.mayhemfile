@@ -1,0 +1,7 @@
+project: arrow-rs
+target: parse-metadata
+
+cmds:
+  - cmd: /parse_metadata
+  - cmd: /parse_metadata_no_inst @@
+    libfuzzer: false
