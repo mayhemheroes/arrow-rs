@@ -7,7 +7,7 @@ RUN apt update && apt upgrade -y && \
 
 RUN rustup component add rust-src
 RUN cargo install -f cargo-fuzz
-RUN cargo install -f afl
+RUN cargo install -f cargo-afl
 
 ## Add source code to the build stage.
 ADD . /src
