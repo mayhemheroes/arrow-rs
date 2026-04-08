@@ -1,5 +1,13 @@
 # Build Stage
-FROM ghcr.io/evanrichter/cargo-fuzz:latest as builder
+FROM rustlang/rust:nightly AS builder
+
+RUN apt update && apt upgrade -y && \
+    apt install -y clang-11 llvm-11-tools && \
+    ln -s /usr/bin/llvm-config-11 /usr/bin/llvm-config
+
+RUN rustup component add rust-src
+RUN cargo install -f cargo-fuzz
+RUN cargo install -f afl
 
 ## Add source code to the build stage.
 ADD . /src
