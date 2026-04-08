@@ -2,8 +2,8 @@
 FROM rustlang/rust:nightly AS builder
 
 RUN apt update && apt upgrade -y && \
-    apt install -y clang-11 llvm-11-tools && \
-    ln -s /usr/bin/llvm-config-11 /usr/bin/llvm-config
+    apt install -y clang-19 llvm-19-tools && \
+    ln -s /usr/bin/llvm-config-19 /usr/bin/llvm-config
 
 RUN rustup component add rust-src
 RUN cargo install -f cargo-fuzz
