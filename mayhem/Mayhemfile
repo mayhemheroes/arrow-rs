@@ -1,0 +1,10 @@
+project: arrow-rs
+target: parse-metadata
+
+cmds:
+  - cmd: /mayhem/parse_metadata
+    libfuzzer: true
+
+testsuite:
+  - https://$MAYHEM_DOMAIN/$MAYHEM_PROJECT/$MAYHEM_TARGET/testsuite.tar
+  - file://mayhem/parse-metadata/testsuite
